@@ -36,9 +36,6 @@
                 <li class="item">
                     <a class="link" href="#contact">Contact</a>
                 </li>
-                <li class="item ml-md-3">
-                    <a href="components.html" class="btn btn-primary">Components</a>
-                </li>
             </ul>
             <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
                 <div class="hamburger-box">
@@ -474,6 +471,30 @@
                 document.getElementById("form-response").innerHTML = "<p>There was an error sending your message. Please try again.</p>";
             });
         });
+          // Function to detect if it's a mobile device
+  function isMobile() {
+    return window.innerWidth < 768;
+  }
+
+  // Function to toggle overlay on click for mobile
+  document.querySelectorAll('.portfolio-card').forEach(function(card) {
+    card.addEventListener('click', function(event) {
+      if (isMobile()) {
+        // Toggle the overlay visibility
+        const overlay = this.querySelector('.portfolio-card-overlay');
+        if (overlay.style.opacity === '1') {
+          overlay.style.opacity = '0';
+          overlay.style.visibility = 'hidden';
+        } else {
+          overlay.style.opacity = '1';
+          overlay.style.visibility = 'visible';
+        }
+
+        // Prevent default link behavior if necessary
+        event.preventDefault();
+      }
+    });
+  });
         </script>
 
 </body>
